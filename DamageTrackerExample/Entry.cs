@@ -3,6 +3,7 @@ using DamageTrackerLib;
 using DamageTrackerLib.DamageInfo;
 using Rage;
 using Rage.Attributes;
+using WeaponHash = DamageTrackerLib.DamageInfo.WeaponHash;
 
 [assembly: Plugin("DamageTrackerExample", Description = "A plugin for testing.",
     Author = "Variapolis",
@@ -33,7 +34,9 @@ namespace TestCallouts
         }
 
         private static void PrintDamage(Ped ped, PedDamageInfo damageInfo) =>
-            Game.DisplayHelp($"{ped.Model.Name} was damaged by a {Enum.GetName(typeof(DamageType), damageInfo.WeaponInfo.Type)}");
+            Game.DisplayHelp($"~g~{ped.Model.Name} {damageInfo.Damage}dmg ({(ped.IsAlive ? "Alive" : "Dead")})" +
+                             $"\n~y~{Enum.GetName(typeof(WeaponHash), damageInfo.WeaponInfo.Hash)} {Enum.GetName(typeof(DamageType), damageInfo.WeaponInfo.Type)} {Enum.GetName(typeof(DamageGroup), damageInfo.WeaponInfo.Group)}" +
+                             $"\n~r~{Enum.GetName(typeof(BoneId), damageInfo.BoneInfo.BoneId)} {Enum.GetName(typeof(Limb), damageInfo.BoneInfo.Limb)} {Enum.GetName(typeof(BodyRegion), damageInfo.BoneInfo.BodyRegion)}");
     }
     
     

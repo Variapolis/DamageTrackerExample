@@ -34,7 +34,7 @@
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="DamageTrackerLib">
-          <HintPath>..\..\..\DamageTrackerPlugin\DamageTrackerUtility\DamageTrackingFramework\bin\Release\DamageTrackerLib.dll</HintPath>
+          <HintPath>..\..\DamageTrackerPlugin\DamageTrackerUtility\DamageTrackingFramework\bin\Release\DamageTrackerLib.dll</HintPath>
         </Reference>
         <Reference Include="Microsoft.CSharp" />
         <Reference Include="RagePluginHook, Version=0.0.0.0, Culture=neutral, processorArchitecture=Amd64">
