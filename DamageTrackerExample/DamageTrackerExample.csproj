@@ -37,8 +37,8 @@
           <HintPath>..\..\..\DamageTrackerPlugin\DamageTrackerUtility\DamageTrackingFramework\bin\Release\DamageTrackerLib.dll</HintPath>
         </Reference>
         <Reference Include="Microsoft.CSharp" />
-        <Reference Include="RagePluginHook">
-          <HintPath>..\References\RagePluginHook.dll</HintPath>
+        <Reference Include="RagePluginHook, Version=0.0.0.0, Culture=neutral, processorArchitecture=Amd64">
+          <HintPath>..\packages\RagePluginHook.1.98.0\lib\net472\RagePluginHook.dll</HintPath>
         </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
@@ -49,6 +49,9 @@
     <ItemGroup>
         <Compile Include="Entry.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
