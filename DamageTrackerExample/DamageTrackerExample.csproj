@@ -37,9 +37,6 @@
           <HintPath>..\..\..\DamageTrackerPlugin\DamageTrackerUtility\DamageTrackingFramework\bin\Release\DamageTrackerLib.dll</HintPath>
         </Reference>
         <Reference Include="Microsoft.CSharp" />
-        <Reference Include="RAGENativeUI">
-          <HintPath>..\References\RAGENativeUI.dll</HintPath>
-        </Reference>
         <Reference Include="RagePluginHook">
           <HintPath>..\References\RagePluginHook.dll</HintPath>
         </Reference>
