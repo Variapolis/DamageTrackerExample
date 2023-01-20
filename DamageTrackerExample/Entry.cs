@@ -34,9 +34,9 @@ namespace TestCallouts
         }
 
         private static void PrintDamage(Ped ped, PedDamageInfo damageInfo) =>
-            Game.DisplayHelp($"~g~{ped.Model.Name} {damageInfo.Damage}dmg ({(ped.IsAlive ? "Alive" : "Dead")})" +
-                             $"\n~y~{Enum.GetName(typeof(WeaponHash), damageInfo.WeaponInfo.Hash)} {Enum.GetName(typeof(DamageType), damageInfo.WeaponInfo.Type)} {Enum.GetName(typeof(DamageGroup), damageInfo.WeaponInfo.Group)}" +
-                             $"\n~r~{Enum.GetName(typeof(BoneId), damageInfo.BoneInfo.BoneId)} {Enum.GetName(typeof(Limb), damageInfo.BoneInfo.Limb)} {Enum.GetName(typeof(BodyRegion), damageInfo.BoneInfo.BodyRegion)}");
+            Game.DisplayHelp($"~w~{ped.Model.Name} (~r~{damageInfo.Damage} Dmg~w~) ({(ped.IsAlive ? "~g~Alive" : "~r~Dead")}~w~)" +
+                             $"\n~y~{damageInfo.WeaponInfo.Hash.ToString()} {damageInfo.WeaponInfo.Type.ToString()} {damageInfo.WeaponInfo.Group.ToString()}" +
+                             $"\n~r~{damageInfo.BoneInfo.BoneId.ToString()} { damageInfo.BoneInfo.Limb.ToString()} {damageInfo.BoneInfo.BodyRegion.ToString()}");
     }
     
     
