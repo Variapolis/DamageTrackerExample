@@ -19,13 +19,13 @@ namespace DamageTrackerLSPDFRExample
             {
                 DamageTrackerService.Start();
                 DamageTrackerService.OnPedTookDamage += HandleDamage;
-                DamageTrackerService.OnPlayerTookDamage += HandleDamage;;  
+                DamageTrackerService.OnPlayerTookDamage += HandleDamage;
             }
             else
             {
                 DamageTrackerService.Stop();
-                DamageTrackerService.OnPedTookDamage -= HandleDamage;;
-                DamageTrackerService.OnPlayerTookDamage -= HandleDamage;;  
+                DamageTrackerService.OnPedTookDamage -= HandleDamage;
+                DamageTrackerService.OnPlayerTookDamage -= HandleDamage;  
             }
         }
 
