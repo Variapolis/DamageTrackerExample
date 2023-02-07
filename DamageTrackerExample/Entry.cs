@@ -21,8 +21,8 @@ namespace TestCallouts
         {
             Game.DisplayNotification("DamageTrackerExample by Variapolis ~g~Successfully Loaded");
             DamageTrackerService.Start();
-            DamageTrackerService.OnPedTookDamage += PrintDamage;
-            DamageTrackerService.OnPlayerTookDamage += PrintDamage;
+            DamageTrackerService.OnPedTookDamage += PrintDamage; // C# Event from DamageTrackerService
+            DamageTrackerService.OnPlayerTookDamage += PrintDamage; // C# Event from DamageTrackerService
             GameFiber.Hibernate();
         }
 
@@ -33,6 +33,7 @@ namespace TestCallouts
             Game.DisplayNotification("DamageTrackerExample by Variapolis ~r~ Unloaded");
         }
 
+        // This uses a delegate function from DamageTrackerLib - public delegate void PedTookDamageDelegate(Ped victimPed, Ped attackerPed, PedDamageInfo damageInfo)
         private static void PrintDamage(Ped ped, Ped attackerPed, PedDamageInfo damageInfo) =>
             Game.DisplayHelp($"~w~{ped.Model.Name} (~r~{damageInfo.Damage} Dmg~w~) ({(ped.IsAlive ? "~g~Alive" : "~r~Dead")}~w~)" +
                              $"\n~r~{attackerPed?.Model.Name ?? "None"}" +
