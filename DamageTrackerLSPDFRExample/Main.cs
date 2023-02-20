@@ -25,15 +25,16 @@ namespace DamageTrackerLSPDFRExample
             {
                 DamageTrackerService.Stop();
                 DamageTrackerService.OnPedTookDamage -= HandleDamage;
-                DamageTrackerService.OnPlayerTookDamage -= HandleDamage;  
+                DamageTrackerService.OnPlayerTookDamage -= HandleDamage;
             }
         }
 
         private static void HandleDamage(Ped victim, Ped attacker, PedDamageInfo damageInfo)
         {
             Game.DisplayHelp(
-                $"~w~{victim.Model.Name} (~r~{damageInfo.Damage} Dmg~w~) ({(victim.IsAlive ? "~g~Alive" : "~r~Dead")}~w~)" +
-                $"\n~r~{attacker?.Model.Name ?? "None"}" +                $"\n~y~{damageInfo.WeaponInfo.Hash.ToString()} {damageInfo.WeaponInfo.Type.ToString()} {damageInfo.WeaponInfo.Group.ToString()}" +
+                $"~w~{victim.Model.Name} (~r~{damageInfo.Damage} ~b~{damageInfo.ArmourDamage} ~w~Dmg) ({(victim.IsAlive ? "~g~Alive" : "~r~Dead")}~w~)" +
+                $"\n~r~{attacker?.Model.Name ?? "None"}" +
+                $"\n~y~{damageInfo.WeaponInfo.Hash.ToString()} {damageInfo.WeaponInfo.Type.ToString()} {damageInfo.WeaponInfo.Group.ToString()}" +
                 $"\n~r~{damageInfo.BoneInfo.BoneId.ToString()} {damageInfo.BoneInfo.Limb.ToString()} {damageInfo.BoneInfo.BodyRegion.ToString()}");
         }
 
