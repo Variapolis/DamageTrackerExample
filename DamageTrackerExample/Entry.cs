@@ -21,8 +21,8 @@ namespace TestCallouts
         {
             Game.DisplayNotification("DamageTrackerExample by Variapolis ~g~Successfully Loaded");
             DamageTrackerService.Start();
-            DamageTrackerService.OnPedTookDamage += PrintDamage; // C# Event from DamageTrackerService
-            DamageTrackerService.OnPlayerTookDamage += PrintDamage; // C# Event from DamageTrackerService
+            DamageTrackerService.OnPedTookDamage += HandleDamage; // C# Event from DamageTrackerService
+            DamageTrackerService.OnPlayerTookDamage += HandleDamage; // C# Event from DamageTrackerService
             GameFiber.Hibernate();
         }
 
@@ -34,10 +34,10 @@ namespace TestCallouts
         }
 
         // This uses a delegate function from DamageTrackerLib - public delegate void PedTookDamageDelegate(Ped victimPed, Ped attackerPed, PedDamageInfo damageInfo)
-        private static void PrintDamage(Ped ped, Ped attackerPed, PedDamageInfo damageInfo) =>
-            Game.DisplayHelp($"~w~Ped: {ped.Model.Name} (~r~{damageInfo.Damage} ~b~{damageInfo.ArmourDamage} ~w~Dmg) " +
-                             $"\n~w~Health: ~g~{ped.Health}/{ped.MaxHealth} ({(ped.IsAlive ? "~g~Alive" : "~r~Dead")}~w~)" +
-                             $"\n~w~Attacker: ~r~{attackerPed?.Model.Name ?? "None"}" +
+        private static void HandleDamage(Ped victim, Ped attacker, PedDamageInfo damageInfo) =>
+            Game.DisplayHelp($"~w~Ped: {victim.Model.Name} (~r~{damageInfo.Damage} ~b~{damageInfo.ArmourDamage} ~w~Dmg ({(victim.IsAlive ? "~g~Alive" : "~r~Dead")}~w~) " +
+                             $"\n~w~Health: ~g~{victim.Health}/{victim.MaxHealth} Armor: ~b~{victim.Armor})" +
+                             $"\n~w~Attacker: ~r~{attacker?.Model.Name ?? "None"}" +
                              $"\n~w~Weapon: ~y~{damageInfo.WeaponInfo.Hash.ToString()} {damageInfo.WeaponInfo.Type.ToString()} {damageInfo.WeaponInfo.Group.ToString()}" +
                              $"\n~w~Bone: ~r~{damageInfo.BoneInfo.BoneId.ToString()} {damageInfo.BoneInfo.Limb.ToString()} {damageInfo.BoneInfo.BodyRegion.ToString()}");
     }
