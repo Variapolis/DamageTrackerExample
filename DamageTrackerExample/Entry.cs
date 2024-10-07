@@ -43,7 +43,7 @@ namespace TestCallouts
                              $"\n~w~Bone: ~r~{damageInfo.BoneInfo.BoneId.ToString()} {damageInfo.BoneInfo.Limb.ToString()} {damageInfo.BoneInfo.BodyRegion.ToString()}");
         
         private static void HandleVehDamage(Vehicle vehicle, Ped attacker, VehDamageInfo damageInfo) =>
-            Game.DisplayHelp($"~w~Ped: {vehicle.Model.Name} (~r~{damageInfo.Damage} ~w~Dmg ({(vehicle.IsAlive ? "~g~Alive" : "~r~Dead")}~w~) " +
+            Game.DisplayHelp($"~w~Vehicle: {vehicle.Model.Name} (~r~{damageInfo.Damage} ~w~Dmg ({(vehicle.IsAlive ? "~g~Alive" : "~r~Dead")}~w~) " +
                              $"\n~w~Health: ~g~{vehicle.Health}/{vehicle.MaxHealth})" +
                              $"\n~w~Attacker: ~r~{attacker?.Model.Name ?? "None"}" +
                              $"\n~w~Weapon: ~y~{damageInfo.WeaponInfo.Hash.ToString()} {damageInfo.WeaponInfo.Type.ToString()} {damageInfo.WeaponInfo.Group.ToString()}" +
